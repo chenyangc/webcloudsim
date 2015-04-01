@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.i18n.encoding" value="UTF-8"/>
+	<constant name="struts.devMode" value="true" />  
+	<constant name="struts.serve.static.browserCache" value="false" /> 
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.configuration.xml.reload" value="true" />
+    <constant name="struts.convention.classes.reload" value="true"/>
+	<constant name="struts.multipart.saveDir" value="tmp"/>
+	 <package name="action" namespace="/basic"  
+	 				 extends="json-default">
+			<default-action-ref name="defaultAction"></default-action-ref>
+ 			<action name="uploadFile" class="uploadFileAction">  
+            		<param name="savePath">/upload</param>  
+           	 		<result name="success">inputALG.jsp</result>  
+       		 </action>  
+        	<action name="downloadFile" class="downloadFileAction">  
+            		<param name="savePath">/upload</param>  
+            		<result name="success">inputALG.jsp</result>  
+        	</action>  
+
+
+         	<action name="runSimulation" class="runSimulationAction">
+        		<result type="json">
+        			<param name="noCache">true</param>
+        			<param name="contentType">text/html</param>
+        		</result>    
+         	</action>
+         	<action name="fetchCustomersNetwork" class="fetchCustomersNetworkAction">
+         		<result type="json">
+         			<param name="noCache">true</param>
+        			<param name="contentType">text/html</param>
+         		</result>
+         	</action>
+         	
+         	<action name="providerCosts" class="providerCostsAction">
+         		<result type="json">
+         			<param name="noCache">true</param>
+        			<param name="contentType">text/html</param>
+         		</result>
+         	</action>
+         	
+         	<action name="updateCosts" class="updateCostsAction">
+         		<result type="json">
+         			<param name="noCache">true</param>
+        			<param name="contentType">text/html</param>
+         		</result>
+         	</action>
+         	
+         	<action name="updateCustomerUtilization" class="updateCustomerUtilizationAction">
+         		<result type="json">
+         			<param name="noCache">true</param>
+        			<param name="contentType">text/html</param>
+         		</result>
+         	</action>
+         	
+         	<action name="fetchRelyList" class="fetchRelyListAction">
+         		<result type="json">
+         			<param name="root">result</param>
+         		</result>
+         	</action>
+         	<action name="updateProviderSettings" class="updateProviderSettingsAction">
+         		<result type="json">
+         			<param name="noCache">true</param>
+        			<param name="contentType">text/html</param>
+         		</result>
+         	</action>
+         	
+         	<action name="datacenterName" class="datacenterNameAction">
+         		<result type="json">
+         			<param name="root">result</param>
+         		</result>
+         	</action>
+         	
+         	<action name="fetchHostId" class="fetchHostIdAction">
+         		<result type="json">
+         			<param name="root">result</param>
+         		</result>
+         	</action>
+         	<action name="providerSettings" class="providerSettingsAction">
+         		<result type="json">
+         			<param name="noCache">true</param>
+        			<param name="contentType">text/html</param>
+         		</result>
+         	</action>
+         	
+         	<action name="fetchSpecialCustomerVM" class="fetchSpecialCustomerVMAction">
+         		<result type="json">
+         			<param name="noCache">true</param>
+        			<param name="contentType">text/html</param>
+         		</result>
+         	</action>
+         	
+         	<action name="addEnvironment" class="addEnvironmentAction">
+         		<result type="json">
+         			<param name="noCache">true</param>
+        			<param name="contentType">text/html</param>
+         		</result>
+         	</action>
+         	<action name="addCustomersVm" class="addCustomersVmAction">
+         		<result type="json">
+         			<param name="noCache">true</param>
+        			<param name="contentType">text/html</param>
+         		</result>
+         	</action>
+         	<action name="updateCustomerVm" class="updateCustomerVmAction">
+         		<result type="json">
+         			<param name="noCache">true</param>
+        			<param name="contentType">text/html</param>
+         		</result>
+         	</action>
+         	
+         	<action name="removeCustomerVm" class="removeCustomerVmAction">
+         		<result type="json">
+         			<param name="noCache">true</param>
+        			<param name="contentType">text/html</param>
+         		</result>
+         	</action>         	
+         	<action name="addCustomer" class="addCustomerAction">
+         		<result type="json">
+         			<param name="noCache">true</param>
+        			<param name="contentType">text/html</param>
+         		</result>
+         	</action>
+         	
+         	<action name="fetchSpecialCustomerNetwork" class="fetchSpecialCustomerNetworkAction">
+         		<result type="json">
+         			<param name="noCache">true</param>
+        			<param name="contentType">text/html</param>
+         		</result>
+         	</action>
+         	
+         	<action name="saveCustomerNetwork" class="saveCustomerNetworkAction">
+         		<result type="json">
+         			<param name="noCache">true</param>
+        			<param name="contentType">text/html</param>
+         		</result>
+         	</action>
+         	<action name="addProvider" class="addProviderAction">
+         		<result type="json">
+         			<param name="noCache">true</param>
+        			<param name="contentType">text/html</param>
+         		</result>
+         	</action>
+         	
+         	<action name="addProviderSAN" class="addProviderSANAction">
+         		<result type="json">
+         			<param name="noCache">true</param>
+        			<param name="contentType">text/html</param>
+         		</result>
+         	</action>
+         	
+         	<action name="removeProviderSAN" class="removeProviderSANAction">
+         		<result type="json">
+         			<param name="noCache">true</param>
+        			<param name="contentType">text/html</param>
+         		</result>
+         	</action>
+         	
+         	<action name="addProviderHosts" class="addProviderHostsAction">
+         		<result type="json">
+         			<param name="noCache">true</param>
+        			<param name="contentType">text/html</param>
+         		</result>
+         	</action>
+         	
+         	<action name="updateProviderHosts" class="updateProviderHostsAction">
+         		<result type="json">
+         			<param name="noCache">true</param>
+        			<param name="contentType">text/html</param>
+         		</result>
+         	</action>
+         	
+         	<action name="updateProviderNetwork" class="updateProviderNetworkAction">
+         		<result type="json">
+         			<param name="noCache">true</param>
+        			<param name="contentType">text/html</param>
+         		</result>
+         	</action>
+         	
+         	<action name="removeProviderHost" class="removeProviderHostAction">
+         		<result type="json">
+         			<param name="noCache">true</param>
+        			<param name="contentType">text/html</param>
+         		</result>
+         	</action>
+         	
+         	<action name="fetchProviderHosts" class="fetchProviderHostsAction">
+         		<result type="json">
+         			<param name="noCache">true</param>
+        			<param name="contentType">text/html</param>
+         		</result>
+         	</action>
+         	
+         	<action name="fetchProviderNetwork" class="fetchProviderNetworkAction">
+         		<result type="json">
+         			<param name="noCache">true</param>
+        			<param name="contentType">text/html</param>
+         		</result>
+         	</action>
+         	
+         	<action name="fetchProviderSAN" class="fetchProviderSANAction">
+         		<result type="json">
+         			<param name="noCache">true</param>
+        			<param name="contentType">text/html</param>
+         		</result>
+         	</action>
+         	
+         	<action name="saveProviderSAN" class="saveProviderSANAction">
+         		<result type="json">
+         			<param name="noCache">true</param>
+        			<param name="contentType">text/html</param>
+         		</result>
+         	</action>
+         	
+         	<action name="deleteCustomer" class="deleteCustomerAction">
+         		<result type="json">
+         			<param name="noCache">true</param>
+        			<param name="contentType">text/html</param>
+         		</result>
+         	</action>
+         	
+         	<action name="removeDatacenter" class="deleteDatacenterAction">
+         		<result type="json">
+         			<param name="noCache">true</param>
+        			<param name="contentType">text/html</param>
+         		</result>
+         	</action>
+         	
+         	<action name="providerGeneralInfo" class="providerGeneralInfoAction">
+         		<result type="json">
+         			<param name="noCache">true</param>
+        			<param name="contentType">text/html</param>
+         		</result>
+         	</action>
+         	
+         	<action name="providerList" class="providerListAction">
+         		<result type="json">
+         			<param name="root">result</param>
+         		</result>
+         	</action>
+         	<action name="customerList" class="customerListAction">
+         		<result type="json">
+         			<param name="root">result</param>
+         		</result>
+         	</action>
+         	
+
+       	<action name="currentCustomer" class="currentCustomerAction">
+
+         		<result type="json">
+         			<param name="noCache">true</param>
+        			<param name="contentType">text/html</param>
+         		</result>
+         	</action>
+         	
+         	<action name="customerGeneralUserInfo" class="customerGeneralUserInfoAction">
+         		<result type="json">
+         			<param name="noCache">true</param>
+        			<param name="contentType">text/html</param>
+         		</result>
+         	</action>
+         	
+         	<action name="customerGeneralVMInfo" class="customerGeneralVMInfoAction">
+         		<result type="json">
+         			<param name="noCache">true</param>
+        			<param name="contentType">text/html</param>
+         		</result>
+         	</action>         	
+         	<action name="currentProvider" class="currentProviderAction">
+         		<result type="json">
+         			<param name="noCache">true</param>
+        			<param name="contentType">text/html</param>
+         		</result>
+         	</action>
+         	
+         	
+
+          	<action name="defaultAction" class="org.app.action.DefaultAction">
+          		<result name="default">/basic/default.jsp</result>
+            </action>
+            <action name="*">
+        		<result>/basic/{1}.jsp</result>
+        	</action>
+      </package>
+   
+
+    <!-- Add packages here -->
+
+</struts>

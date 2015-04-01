@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="org.app.models.SimulationRegistry" table="Simulations">
+    <id column="Id" name="id" type="long">
+      <generator class="native"/>
+    </id>
+    <property column="Name" name="name" type="string"/>
+    <list cascade="all-delete-orphan" lazy="false" name="customerList">
+      <key column="SimulationId"/>
+      <index column="Indx"/>
+      <one-to-many class="org.app.models.CustomerRegistry"/>
+    </list>
+    <list cascade="all-delete-orphan" lazy="false" name="datacenterList">
+      <key column="SimulationId"/>
+      <index column="Indx"/>
+      <one-to-many class="org.app.models.DatacenterRegistry"/>
+    </list>
+
+   
+    <set cascade="all" lazy="false" inverse="true" name="reportDatas">
+      <key column="SimulationId"/>  
+       
+      <one-to-many class="org.app.models.ReportData"/>
+    </set>
+    <list cascade="all-delete-orphan" lazy="false" name="randomNumbers">
+      <key column="SimulationId"/>
+      <index column="Indx"/>
+      <one-to-many class="org.app.models.RandomNumber"/>
+    </list>
+    <list cascade="all-delete-orphan" lazy="false" name="networkMapEntrys">
+      <key column="SimulationId"/>
+      <index column="Indx"/>
+      <one-to-many class="org.app.models.NetworkMapEntry"/>
+    </list>
+    <list cascade="all-delete-orphan" lazy="false" name="migrations">
+      <key column="SimulationId"/>
+      <index column="Indx"/>
+      <one-to-many class="org.app.models.Migration"/>
+    </list>
+    <list cascade="all-delete-orphan" lazy="false" name="drawDatas">
+      <key column="SimulationId"/>
+      <index column="Indx"/>
+      <one-to-many class="org.app.models.DrawData"/>
+    </list>
+    
+	 <list cascade="all-delete-orphan" lazy="false" name="settings">
+      <key column="SimulationId"/>
+      <index column="Indx"/>
+      <one-to-many class="org.app.models.Setting"/>
+    </list>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,24 @@
+body
+{
+   background-color :#ECF4FD;
+}
+
+#begin_link
+{
+    position:absolute;
+    top:200px;
+    left:50px;
+}
+#button_customer
+{
+    position:absolute;
+    top:200px;
+    left:30px;
+}
+#back_customer
+{
+    position:absolute;
+    top:250px;
+    left:30px;
+}
+

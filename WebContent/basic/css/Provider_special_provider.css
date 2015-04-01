@@ -1,0 +1,42 @@
+#choice_general_hosts_costs_san_network
+{
+    position:absolute;
+    top:75px;
+    left:400px;
+}
+#Speial_Provider_settings_part
+{
+    position:absolute;
+    top:50px;
+    left:50px;
+}
+#Special_provider_information_part
+{
+    position:absolute;
+    top:320px;
+    left:50px;
+}
+#Special_provider_costs_part
+{
+    position:absolute;
+    top:60px;
+    left:50px;
+}
+#Special_provider_san_part
+{
+    position:absolute;
+    top:60px;
+    left:50px;
+}
+#Special_provider_network_part
+{
+    position:absolute;
+    top:100px;
+    left:50px;
+}
+#Special_provider_hosts_part
+{
+    position:absolute;
+    top:100px;
+    left:50px;
+};

@@ -1,0 +1,30 @@
+#Choice_overview_network
+{
+    position:absolute;
+    top:75px;
+    left:400px;
+}
+#Provider_add_datacenter_part
+{
+    position:absolute;
+    top:70px;
+    left:50px;
+}
+#Provider_delete_datacenter_part
+{
+    position:absolute;
+    top:70px;
+    left:400px;
+}
+#Provider_general_information_part
+{
+    position:absolute;
+    top:150px;
+    left:50px;
+}
+#Provider_network_part
+{
+    position:absolute;
+    top:75px;
+    left:75px;
+};

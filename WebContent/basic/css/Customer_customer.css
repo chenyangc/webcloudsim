@@ -1,0 +1,36 @@
+#Choice_overview_network
+{
+    position:absolute;
+    top:75px;
+    left:400px;
+}
+#Customer_add_customer_part
+{
+    position:absolute;
+    top:50px;
+    left:50px;
+}
+#Customer_delete_customer_part
+{
+    position:absolute;
+    top:50px;
+    left:400px;
+}
+#Customer_users_part
+{
+    position:absolute;
+    top:120px;
+    left:50px;
+}
+#Customer_virtual_machines_part
+{
+    position:absolute;
+    top:340px;
+    left:50px;
+}
+#Customer_network_part
+{
+    position:absolute;
+    top:75px;
+    left:75px;
+};

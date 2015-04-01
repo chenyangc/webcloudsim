@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="GBK"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd 
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-4.0.xsd"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop">
+	
+	<!-- 定义数据源Bean，使用C3P0数据源实现，并注入数据源的必要信息 -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close"
+		p:driverClass="com.mysql.jdbc.Driver"
+		p:jdbcUrl="jdbc:mysql://10.109.247.76:3306/webcloudsim"
+		p:user="cloudsim"
+		p:password="123"
+		p:maxPoolSize="30"
+		p:minPoolSize="1"
+		p:initialPoolSize="5"
+		p:maxIdleTime="30"/>
+		<!-- 定义Hibernate的SessionFactory，SessionFactory需要依赖数据源，注入dataSource -->
+	<bean id="sessionFactory" 
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"
+		p:dataSource-ref="dataSource">
+		<!-- mappingResources用来列出全部映射文件 -->
+		<property name="mappingDirectoryLocations">
+			<list>
+				<!-- 以下用来列出所有的PO类-->
+				<value>classpath:database/mapping/</value>
+			</list>
+		</property>
+		<!-- 定义Hibernate SessionFactory的属性 -->
+		<property name="hibernateProperties">
+			<props>
+				<!-- 指定Hibernate的连接方言 -->
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQL5InnoDBDialect</prop>
+				<!--是否根据Hiberante映射创建数据表 -->
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">false</prop>
+				<prop key="hibernate.c3p0.validate">true</prop>	
+			</props>
+		</property>
+	</bean>
+	<bean id="uploadFileAction" class="org.app.action.UploadFileAction"></bean>
+	<bean id="downloadFileAction" class="org.app.action.DownloadFileAction"></bean>
+	<bean id="runSimulationAction" class="org.app.action.RunSimulationAction"></bean>
+	<bean id="fetchCustomersNetworkAction" class="org.app.action.FetchCustomersNetworkAction"></bean>
+	<bean id="fetchHostIdAction" class="org.app.action.FetchHostIdAction"></bean>
+	
+	<bean id="addEnvironmentAction" class="org.app.action.AddEnvironmentAction"></bean>
+	
+	<bean id="addCustomerAction" class="org.app.action.AddCustomerAction"></bean>
+	
+	<bean id="addCustomersVmAction" class="org.app.action.AddCustomerVmAction" scope="prototype"></bean>
+	<bean id="customerListAction" class="org.app.action.CustomerListAction"></bean>
+	<bean id="currentCustomerAction" class="org.app.action.CurrentCustomerAction"></bean>
+	<bean id="updateCustomerVmAction" class="org.app.action.UpdateCustomerVmAction" scope="prototype"></bean>
+	<bean id="updateCustomerUtilizationAction" class="org.app.action.UpdateCustomerUtilizationAction"></bean>
+	
+	<bean id="fetchRelyListAction" class="org.app.action.FetchRelyListAction"></bean>
+ 
+	<bean id="removeCustomerVmAction" class="org.app.action.RemoveCustomerVmAction"></bean>
+	
+	<bean id="providerCostsAction" class="org.app.action.ProviderCostsAction"></bean>
+	
+	<bean id="datacenterNameAction" class="org.app.action.DatacenterNameAction"></bean>
+	
+	<bean id="providerSettingsAction" class="org.app.action.ProviderSettingsAction"></bean>
+	
+	<bean id="updateProviderSettingsAction" class="org.app.action.UpdateProviderSettingsAction"></bean>
+	
+	<bean id="updateCostsAction" class="org.app.action.UpdateCostsAction"></bean>
+	
+	<bean id="addProviderAction" class="org.app.action.AddProviderAction"></bean>
+	
+
+	<bean id="addProviderSANAction" class="org.app.action.AddProviderSANAction"></bean>
+	
+	<bean id="removeProviderSANAction" class="org.app.action.RemoveProviderSANAction"></bean>
+	
+	<bean id="updateProviderNetworkAction" class="org.app.action.UpdateProviderNetworkAction"></bean>
+	
+	<bean id="addProviderHostsAction" class="org.app.action.AddProviderHostsAction"></bean>
+	
+	<bean id="updateProviderHostsAction" class="org.app.action.UpdateProviderHostsAction"></bean>
+	
+	<bean id="removeProviderHostAction" class="org.app.action.RemoveProviderHostAction"></bean>
+	
+	<bean id="fetchProviderHostsAction" class="org.app.action.FetchProviderHostsAction"></bean>
+	
+
+	<bean id="fetchSpecialCustomerNetworkAction" class="org.app.action.FetchSpecialCustomerNetworkAction"></bean>
+
+
+	<bean id="fetchProviderNetworkAction" class="org.app.action.FetchProviderNetworkAction"></bean>
+
+
+	
+	<bean id="saveCustomerNetworkAction" class="org.app.action.SaveCustomerNetworkAction"></bean>
+
+	<bean id="fetchProviderSANAction" class="org.app.action.FetchProviderSANAction"></bean>
+	
+	<bean id="saveProviderSANAction" class="org.app.action.SaveProviderSANAction"></bean>
+	
+
+	<bean id="deleteCustomerAction" class="org.app.action.DeleteCustomerAction"></bean>
+	
+	<bean id="deleteDatacenterAction" class="org.app.action.DeleteDatacenterAction"></bean>
+	
+	<bean id="providerGeneralInfoAction" class="org.app.action.ProviderGeneralInfoAction"></bean>
+	<bean id="customerGeneralUserInfoAction" class="org.app.action.CustomerGeneralUserInfoAction"></bean>
+	<bean id="customerGeneralVMInfoAction" class="org.app.action.CustomerGeneralVMInfoAction"></bean>
+	<bean id="providerListAction" class="org.app.action.ProviderListAction"></bean>
+	
+	<bean id="currentProviderAction" class="org.app.action.CurrentProviderAction"></bean>
+
+	<bean id="fetchSpecialCustomerVMAction" class="org.app.action.FetchSpecialCustomerVMAction"></bean>
+
+	<bean id="hibernateUtil" class="org.app.database.HibernateUtil"
+		p:sessionFactory-ref="sessionFactory"/>
+	
+		
+
+	<!-- 配置Hibernate的局部事务管理器，使用HibernateTransactionManager类 -->
+	<!-- 该类是PlatformTransactionManager接口针对采用Hibernate的特定实现类 -->
+	<!-- 配置HibernateTransactionManager需依赖注入SessionFactory -->
+	<bean id="transactionManager" 
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager"
+		p:sessionFactory-ref="sessionFactory"/>
+		
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">      
+			<tx:attributes>
+			<!-- 所有以'get'开头的方法是read-only的 -->
+			<tx:method name="get*" read-only="true"/>
+			<!-- 其他方法使用默认的事务设置，指定超时时长为5秒 -->
+			<tx:method name="*" isolation="DEFAULT"
+				propagation="REQUIRED" timeout="5"/>
+			</tx:attributes> 
+     </tx:advice>
+		<!-- AOP配置的元素 -->
+	<aop:config>
+		<!-- 配置一个切入点 -->
+		<aop:pointcut id="myPointcut" expression="bean(datacenterRegistryDAO)"/>
+		<!-- 指定在myPointcut切入点应用txAdvice事务增强处理 -->
+		<aop:advisor advice-ref="txAdvice" 
+			pointcut-ref="myPointcut"/>
+	</aop:config>
+</beans>
